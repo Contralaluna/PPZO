@@ -1,0 +1,44 @@
+def kalkulator():
+    try:
+        liczba1 = float(input("Podaj pierwszą liczbę: "))
+        liczba2 = float(input("Podaj drugą liczbę: "))
+        operacja = input("Wybierz operację (+, -, *, /): ")
+
+        if operacja == "+":
+            wynik = liczba1 + liczba2
+        elif operacja == "-":
+            wynik = liczba1 - liczba2
+        elif operacja == "*":
+            wynik = liczba1 * liczba2
+        elif operacja == "/":
+            if liczba2 != 0:
+                wynik = liczba1 / liczba2
+            else:
+                print("Błąd: Dzielenie przez zero!")
+                return
+        else:
+            print("Nieznana operacja!")
+            return
+
+        print(f"Wynik: {wynik}")
+    except ValueError:
+        print("Błąd: Wprowadź prawidłowe liczby!")
+
+
+def main():
+    while True:
+        print("\n=== MENU ===")
+        print("1. Kalkulator dwóch liczb")
+        print("0. Wyjście")
+        wybor = input("Wybierz opcję: ")
+
+        if wybor == "1":
+            kalkulator()
+        elif wybor == "0":
+            print("Do widzenia!")
+            break
+        else:
+            print("Nieprawidłowy wybór, spróbuj ponownie.")
+
+if __name__ == "__main__":
+    main()
