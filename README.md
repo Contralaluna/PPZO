@@ -1,2 +1,0 @@
-# PPZO
-Zadanie1
