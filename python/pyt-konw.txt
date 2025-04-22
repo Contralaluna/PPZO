@@ -1,0 +1,40 @@
+def konwerter_temperatur():
+    try:
+        kierunek = input("Wybierz kierunek konwersji (C = Celsjusz → Fahrenheit, F = Fahrenheit → Celsjusz): ").upper()
+
+        if kierunek == "C":
+            celsius = float(input("Podaj temperaturę w stopniach Celsjusza: "))
+            fahrenheit = celsius * 1.8 + 32
+            print(f"{celsius}°C = {fahrenheit:.2f}°F")
+        elif kierunek == "F":
+            fahrenheit = float(input("Podaj temperaturę w stopniach Fahrenheita: "))
+            celsius = (fahrenheit - 32) / 1.8
+            print(f"{fahrenheit}°F = {celsius:.2f}°C")
+        else:
+            print("Nieprawidłowy wybór. Wybierz 'C' lub 'F'.")
+    except ValueError:
+        print("Błąd: Podano nieprawidłową wartość temperatury!")
+
+def main():
+    while True:
+        print("\n=== MENU ===")
+        print("1. Kalkulator dwóch liczb")
+        print("2. Konwerter temperatur")
+        print("0. Wyjście")
+        wybor = input("Wybierz opcję: ")
+
+        if wybor == "1":
+            kalkulator()  # zakładamy, że masz już tę funkcję z Zadania 1
+        elif wybor == "2":
+            konwerter_temperatur()
+        elif wybor == "0":
+            print("Do widzenia!")
+            break
+        else:
+            print("Nieprawidłowy wybór, spróbuj ponownie.")
+
+# Zakładamy, że masz już wcześniej zdefiniowaną funkcję `kalkulator()` z Zadania 1.
+# Jeśli chcesz, mogę połączyć oba zadania w jednym pliku – daj znać!
+
+if __name__ == "__main__":
+    main()

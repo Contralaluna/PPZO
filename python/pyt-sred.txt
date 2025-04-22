@@ -1,0 +1,32 @@
+def srednia_ocen():
+    try:
+        liczba_ocen = int(input("Podaj liczbę ocen: "))
+        
+        if liczba_ocen <= 0:
+            print("Liczba ocen musi być większa od 0.")
+            return
+        
+        suma_ocen = 0
+        
+        for i in range(liczba_ocen):
+            ocena = float(input(f"Podaj ocenę {i + 1}: "))
+            if ocena < 1 or ocena > 6:
+                print("Ocena musi być w zakresie od 1 do 6.")
+                return
+            suma_ocen += ocena
+        
+        srednia = suma_ocen / liczba_ocen
+        print(f"Średnia: {srednia:.2f}")
+        
+        if srednia >= 3.0:
+            print("Uczeń zdał.")
+        else:
+            print("Uczeń nie zdał.")
+    except ValueError:
+        print("Błąd: Wprowadź prawidłową liczbę!")
+
+def main():
+    srednia_ocen()
+
+if __name__ == "__main__":
+    main()
