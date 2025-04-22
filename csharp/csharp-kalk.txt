@@ -1,0 +1,83 @@
+using System;
+
+class Program
+{
+    static void Kalkulator()
+    {
+        try
+        {
+            Console.Write("Podaj pierwszą liczbę: ");
+            double liczba1 = double.Parse(Console.ReadLine());
+
+            Console.Write("Podaj drugą liczbę: ");
+            double liczba2 = double.Parse(Console.ReadLine());
+
+            Console.Write("Wybierz operację (+, -, *, /): ");
+            string operacja = Console.ReadLine();
+
+            double wynik;
+
+            if (operacja == "+")
+            {
+                wynik = liczba1 + liczba2;
+            }
+            else if (operacja == "-")
+            {
+                wynik = liczba1 - liczba2;
+            }
+            else if (operacja == "*")
+            {
+                wynik = liczba1 * liczba2;
+            }
+            else if (operacja == "/")
+            {
+                if (liczba2 != 0)
+                {
+                    wynik = liczba1 / liczba2;
+                }
+                else
+                {
+                    Console.WriteLine("Błąd: Dzielenie przez zero!");
+                    return;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Nieznana operacja!");
+                return;
+            }
+
+            Console.WriteLine("Wynik: " + wynik);
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Błąd: Wprowadź prawidłowe liczby!");
+        }
+    }
+
+    static void Main(string[] args)
+    {
+        while (true)
+        {
+            Console.WriteLine("\n=== MENU ===");
+            Console.WriteLine("1. Kalkulator dwóch liczb");
+            Console.WriteLine("0. Wyjście");
+            Console.Write("Wybierz opcję: ");
+            string wybor = Console.ReadLine();
+
+            if (wybor == "1")
+            {
+                Kalkulator();
+            }
+            else if (wybor == "0")
+            {
+                Console.WriteLine("Do widzenia!");
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Nieprawidłowy wybór, spróbuj ponownie.");
+            }
+        }
+    }
+}
